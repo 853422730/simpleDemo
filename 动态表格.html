@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态表格</title>
+	<style type="text/css">
+		*{margin：0; padding:0; font-size:14px; font-family: 微软雅黑; }
+		div{
+			width:800px; 
+			margin: 20px auto; 
+			text-align: center;
+			background: #EAFCD5;
+			border:solid 1px #C0DE98;
+			height: 38px;
+			line-height: 38px;
+		}
+		.b-width{
+			width:80px; 
+		}
+		table{width:800px; background: #C0DE98; margin: 20px auto;}
+		table td{
+			background: #fff;
+			height: 32px;
+			text-align: center;
+		}
+		.lastwidth{
+			width: 10%;
+		}
+		a{
+			color:#06482A;
+			text-decoration: none;
+		}
+		a:hover{
+			color:#ff0000;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var createBtn = document.getElementById("create");
+			var table = document.getElementsByTagName("table")[0];
+			var oldTbody;
+			createBtn.onclick = function(){
+				if(oldTbody){
+					table.removeChild(oldTbody);
+				}
+				var tbody = document.createElement("tbody");
+				oldTbody = tbody;
+				var rowCount = document.getElementById("rows").value;
+				var cellCount = document.getElementById("cells").value;
+				for (var i = 0; i < rowCount; i++) {
+					tbody.insertRow(i);
+					// var row = document.createElement("tr");
+					for(var j = 0; j < cellCount; j++){
+						tbody.rows[i].insertCell(j);
+						// var cell = document.createElement("td");
+						// cell.innerHTML=Math.floor((j+1)*Math.random()*(Math.random()*100));
+						tbody.rows[i].cells[j].innerHTML=Math.floor((j+1)*Math.random()*(Math.random()*100));
+						var bgColor = Math.floor(Math.random()*0xFFFFFF).toString(16).toUpperCase();
+						while(bgColor.length<6){
+							bgColor = "0"+bgColor;
+						}
+						tbody.rows[i].cells[j].style.backgroundColor="#"+bgColor;
+						// cell.style.backgroundColor = "#" + bgColor;
+						//row.appendChild(cell);
+					}
+					//tbody.appendChild(row);
+				}
+				table.appendChild(tbody);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		行：<input type="text" id="rows" />&nbsp;
+		列：<input type="text" id="cells" />&nbsp;
+		<input type="button" value="生 成" id="create" class="b-width" />
+	</div>
+	<table cellspacing="1"></table>
+</body>
+</html>

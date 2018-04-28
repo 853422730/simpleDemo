@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转</title>
+</head>
+<style>
+    *{
+        margin:0;padding:0;
+    }
+    body{
+        background:#111;
+    }
+    .stage{
+        width:400px;
+        height:400px;
+        margin:100px auto;
+        perspective:800px;
+        transform-style: preserve-3d;
+    }
+     .div1{
+         position:absolute;
+         height:400px;width:400px;
+         transform-origin:50% 50%;
+         transform:rotateX(35deg);
+     }
+     .div11{
+         background-image:url(3.png);
+         background-size:cover;
+         height:100%;width:100%;
+         opacity:.5;
+         /*animation-name:zhuan;*/
+         /*animation-duration:5s;*/
+         /*animation-timing-function:linear;*/
+         /*animation-iteration-count:infinite;*/
+         animation:zhuan 5s linear infinite;
+     }
+     .div2{
+         position:absolute;
+         height:400px;width:400px;
+         transform-origin:50% 50%;
+         transform:rotateX(-70deg);
+     }
+     .div22{
+         background-image:url(3.png);
+         background-size:cover;
+         height:100%;width:100%;
+         /*animation-direction:reverse;*/
+         opacity:.9;
+         /*animation-name:zhuan;*/
+         /*animation-duration:7s;*/
+         /*animation-timing-function:linear;*/
+         /*animation-iteration-count:infinite;*/
+         animation:zhuan 7s linear infinite reverse;
+     }
+     @-webkit-keyframes zhuan{
+         from{
+             transform:rotate(0deg);
+         }
+         to{
+             transform:rotate(360deg);
+         }
+     }
+</style>
+<body>
+    <div class="stage">
+        <div class="div1">
+            <div class="div11"></div>
+        </div>
+        <div class="div2">
+            <div class="div22"></div>
+        </div>
+    </div>
+</body>
+</html>

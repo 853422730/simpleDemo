@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>酷炫效果</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li{
+            list-style:none;
+        }
+        section{
+            width:100%;
+        }
+        section:after{
+            content: "";
+            display: block;
+            height:0;
+            clear: both;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        section article{
+            float:left;
+            width:33.33%;
+            height:320px;
+            overflow:hidden;
+            transition:all .5s;
+            position: relative;
+            overflow:hidden;
+        }
+        h2{
+          font-size:30px;
+            color:#fff;
+            transition:all .5s;
+        }
+        p{
+            font-size:20px;
+            color:#fff;
+            transition:all .5s;
+        }
+        section article img{
+            opacity:1;
+            transition:all .5s;
+        }
+        section article:first-child h2{
+            position:absolute;
+            top:55%;
+            left:30px;
+            transition:all .5s;
+        }
+        section article:first-child p{
+            position:absolute;
+            bottom:-25px;
+            left:30px;
+            transition:all .5s;
+        }
+        section article:hover img{
+            opacity:0.7;
+            transform:translate(-20px);
+        }
+        section article:first-child:hover h2{
+            transform:translateY(-15px);
+        }
+        section article:first-child:hover p{
+            transform:translateY(-100px);
+        }
+        section article:nth-child(2) h2{
+            position:absolute;
+            top:55px;
+            left:35px;
+        }
+        section article:nth-child(2):hover h2{
+            transform:translateY(-10PX);
+        }
+        section article:nth-child(2) P{
+            position:absolute;
+            padding:0 13px;
+            background:#fff;
+            color:#000;
+            font-size:16px;
+        }
+        section article:nth-child(2) .p1{
+            left:-150px;
+            top:120px;
+            transition:all .3s ease;
+        }
+        section article:nth-child(2) .p2{
+            left:-150px;
+            top:150px;
+            transition:all .3s ease .2s;
+        }
+        section article:nth-child(2) .p3{
+            left:-150px;
+            top:180px;
+            transition:all .3s ease .3s;
+        }
+        section article:nth-child(2):hover p{
+            transform:translate(180px);
+        }
+        section article:nth-child(3) h2{
+            position:absolute;
+            top:110px;left:35px;
+        }
+        section article:nth-child(3):hover h2{
+            transform:translateY(-10px);
+        }
+        section article:nth-child(3) p{
+            text-indent:2em;
+            overflow:hidden;
+            position:absolute;
+            bottom:-40px;
+            color:#000;
+            background:#fff;
+            font-size:16px;
+        }
+        section article:nth-child(3):hover p{
+            transform:translateY(-40px);
+        }
+        section article:nth-child(4) h2{
+            position: absolute;
+            top:40%;
+            left:15%;
+            opacity:0;
+        }
+        section article:nth-child(4):hover h2{
+            opacity:1;
+            transform:translateY(-20px);
+        }
+        section article:nth-child(4) div{
+            width:150%;
+            height:100%;
+            background:#fff;
+            position:absolute;
+            bottom:-100%;
+            transform-origin:left top;
+            transition:all .5s;
+        }
+        section article:nth-child(4):hover div{
+            transform:rotate(-15deg);
+        }
+        section article:nth-child(4) ul{
+            width:100%;
+            position:absolute;
+            bottom:-20px;
+            left:60%;
+        }
+        section article:nth-child(4) ul li{
+            float:left;
+            color:#000;
+            margin-right:20px;
+            font-size:20px;
+            font-weight:bold;
+        }
+        section article:nth-child(4) ul li:first-child{
+            transition:all .5s ease;
+        }
+        section article:nth-child(4) ul li:last-child{
+            transition:all .5s ease .1s;
+        }
+        section article:nth-child(4):hover li{
+            transform: translateY(-50px);
+        }
+        section article:nth-child(5) h2{
+            position:absolute;
+            left:25px;
+            top:60px;
+        }
+        section article:nth-child(5) p{
+            font-size:14px;
+            position:absolute;
+            left:70px;
+            top:50%;
+        }
+        section article:nth-child(5):hover h2{
+            transform:translate(22%);
+        }
+        section article:nth-child(5):hover p{
+            transform:translateY(-30px);
+        }
+        section article:nth-child(5) div{
+            width:70%;
+            height:70%;
+            border:1px solid #333;
+            position:absolute;
+            top:15%;left:15%;
+            transform-origin:left top;
+            transition:all .5s;
+            transform:translate(0,-140%) rotate(0deg);
+        }
+        section article:nth-child(5):hover div{
+            transform: translate(0,0) rotate(360deg);
+        }
+        section article:nth-child(6) h2{
+            position:absolute;
+            top:40px;
+            left:40px;
+            transform: skew(90deg);
+        }
+        section article:nth-child(6) p{
+            position:absolute;
+            width:80%;
+            overflow: hidden;
+            top:100px;
+            left:50px;
+            transform: skew(90deg);
+        }
+        section article:nth-child(6):hover h2{
+            transform:skew(0deg);
+        }
+        section article:nth-child(6):hover p{
+            transform:skew(0deg);
+        }
+        section article:nth-child(7) div{
+            width:80%;
+            height:80%;
+            border:2px solid #fff;
+            position:absolute;
+            left:10%;top:10%;
+            transform:scale(0.8);
+            transition:all .5s;
+        }
+        section article:nth-child(7) h2{
+            position:absolute;
+            left:20%;
+            top:20%;
+        }
+        section article:nth-child(7) p{
+            position:absolute;
+            left:30%;
+            top:40%;
+        }
+        section article:nth-child(7):hover img{
+            transform:scale(1.2);
+        }
+        section article:nth-child(7):hover h2{
+            transform:scale(1.2);
+        }
+        section article:nth-child(7):hover p{
+            transform:scale(1.2);
+        }
+        section article:nth-child(7):hover div{
+            transform:scale(1);
+        }
+        section article:nth-child(8) h2{
+            position: absolute;
+            left:10%;
+            top:40%;
+        }
+        section article:nth-child(8):hover h2{
+            transform:translate(20%);
+        }
+        section article:nth-child(8) .div1{
+            width:80%;
+            height:70%;
+            position:absolute;
+            left:10%;
+            top:15%;
+            border-top:1px solid #fff;
+            border-bottom:1px solid #fff;
+            transition:all .5s;
+            transform: rotateY(90deg);
+        }
+        section article:nth-child(8) .div2{
+            width:70%;
+            height:80%;
+            position:absolute;
+            left:15%;
+            top:10%;
+            border-right:1px solid #fff;
+            border-left:1px solid #fff;
+            transition:all .5s;
+            transform: rotateX(90deg);
+        }
+        section article:nth-child(8):hover .div1{
+            transform: rotateY(0deg);
+        }
+        section article:nth-child(8):hover .div2{
+            transform: rotateX(0deg);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <article>
+            <img src="img/img1.jpg" alt="">
+            <h2>平移效果平移</h2>
+            <p>最简单的平移动画</p>
+        </article>
+        <article>
+            <img src="img/img2.jpg" alt="">
+            <h2>平移效果平移2</h2>
+            <p class="p1">最简单的平移</p>
+            <p class="p2">最简单的平</p>
+            <p class="p3">最简单的平移动</p>
+        </article>
+        <article>
+            <img src="img/img3.jpg" alt="">
+            <h2>底部滑出效果</h2>
+            <p>最简单的平移动画时间到了开始放假老司机垫付水电费速度速度是否师胜多负少是的发送到傅的说法。</p>
+        </article>
+        <article>
+            <img src="img/img4.jpg" alt="">
+            <h2>旋转获取额外的信息</h2>
+            <div></div>
+            <ul>
+                <li>info1</li>
+                <li>info2</li>
+            </ul>
+        </article>
+        <article>
+            <img src="img/img5.jpg" alt="">
+            <h2>旋转飞出飞入</h2>
+            <p>最简单的平移动画旋转旋转</p>
+            <div></div>
+        </article>
+        <article>
+            <img src="img/pic1.jpg" alt="">
+            <h2>扭曲飞入飞出</h2>
+            <p>最简单的平移动画水电费对方水电费第。<br/>是的发送到水电费水电费</p>
+        </article>
+        <article>
+            <img src="img/pic3.jpg" alt="">
+            <h2>简单的缩放效果</h2>
+            <p>最简单的平移动画</p>
+            <div></div>
+        </article>
+        <article>
+            <img src="img/pic4.jpg" alt="">
+            <h2>绘制线条效果</h2>
+            <p>线条效果收款方老师的发爱</p>
+            <div class="div1"></div>
+            <div class="div2"></div>
+        </article>
+        <article>
+            <img src="img/pic5.jpg" alt="">
+            <h2>平移效果平移</h2>
+            <p>最简单的平移动画</p>
+        </article>
+    </section>
+</body>
+</html>

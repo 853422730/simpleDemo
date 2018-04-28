@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{
+        background: #333;
+    }
+    ul{
+        width: 70%;
+        position: relative;
+        margin: 0;padding: 0;
+        margin: 0 auto;
+    }
+    ul li{
+        list-style: none;margin: 0;padding: 0;
+        width: 20%;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;float: left;
+        color: #fff;
+    }
+    ul p{
+        width: 20%;
+        height: 5px;
+        border-radius: 2.5px;
+        background: #2e3bff;
+        position: absolute;
+        top: 0;
+        transition: all 0.3s;
+    }
+    article{
+        width: 250px;
+        height: 400px;
+        border: 1px solid #fff;
+        overflow: hidden;
+        position: absolute;
+    }
+    article .top{
+        width:100%;
+        height: 250px;
+        position: relative;
+    }
+    article .top .imgbox{
+        position: absolute;
+        width: 73px;
+        height: 63px;
+        background: url("words.png") no-repeat;
+        background-position: -247px -365px;
+        top: 0;
+        left: 0;right: 0;bottom: 0;margin: auto;
+        z-index: 2001;
+    }
+    article:hover .imgbox{
+        transition: all 0.3s;
+        background-position: -170px -365px;
+    }
+    article .top .circlebox{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    article .circlebox .circle{
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        border: 5px solid blue;
+        border-radius: 50%;
+    }
+    article .circlebox .left{
+        width: 50%;
+        height: 100%;
+        background: #333;
+        position:absolute;
+        top: -250px;left: 0;
+        transition: all 0.3s;
+    }
+    article .circlebox .right{
+        width: 50%;
+        height: 100%;
+        background: #333;
+        position:absolute;
+        bottom: -250px;right: 0px;
+        transition: all 0.3s;
+    }
+    article:hover .left{
+        transform: translateY(250px);
+    }
+    article:hover .right{
+        transform: translateY(-250px);
+    }
+    article p{
+        text-align: center;
+        color: #89ffeb;
+        position: relative;
+        z-index: 2001;
+        transition: all 0.3s linear 0.2s;
+    }
+    article:hover p{
+        color: #fff;
+    }
+    article .bottom{
+        width: 250px;
+        height: 400px;
+        background: #89ffeb;
+        position: absolute;
+        bottom: -400px;
+        z-index: 2000;
+
+    }
+    article:hover .bottom{
+        transition: all 0.3s ease 0.3s;
+        transform: translateY(-400px);
+    }
+
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>HOME</li>
+                <li>NEWS</li>
+                <li>ABOUT</li>
+                <li>CONTACT</li>
+                <li>DRESS</li>
+                <p></p>
+                <div style="clear: both"></div>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <article>
+            <div class="top">
+                <div class="circlebox">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="imgbox"></div>
+            </div>
+            <p>高端定制网站</p>
+            <div class="bottom">
+            </div>
+        </article>
+    </section>
+
+</body>
+<script src="jquery.js"></script>
+<script>
+    var w=$("li").width();
+    var trans=0;
+    $("li").hover(function(){
+        var index=$(this).index();
+        $("ul p").css({
+            transform:"translate("+(index*w)+"px)"
+        })
+    },function(){
+        $("ul p").css({
+            transform:"translate("+trans+"px)"
+        })
+    })
+    $("li").click(function(){
+        var index=$(this).index();
+        trans=index*w;
+//        $("ul p").css({
+//            transform:"translate("+(index*w)+"px)"
+//        })
+    })
+</script>
+</html>

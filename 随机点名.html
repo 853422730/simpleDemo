@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>随机点名</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				font-family:微软雅黑;
+			}
+			#call{
+				width:500px;
+				height:300px;
+				line-height:300px;
+				border:solid 8px #FF6600;
+				font-size:78px;
+				text-align:center;
+				margin:50px auto;
+				text-shadow:1px 1px 6px #CC9747;
+			}
+			.divbtn{
+				margin:10px auto;
+				width:120px;
+			}
+			input{
+				width:120px;
+				height:48px;
+			}
+		</style>
+		<script>
+			onload = function(){
+				var arr = ["小明","小红","小兰","小蓝","小黄","小新","小琴","小哥","小伟"];
+				var isCall = true;
+				
+				function callName(){
+					var index = parseInt(Math.random() * arr.length);
+					call.innerHTML = arr[index];
+				}
+				
+				var timer;
+				callbtn.onclick = function(){
+					if(isCall){
+						callbtn.value = "暂停点名";
+						isCall = false;
+						//间歇定时器
+						//第一个参数：反复调用的函数执行上下文
+						//第二个参数：间隔时间(单位是毫秒)
+						//间歇定时器函数的返回值是定时编号
+						timer = setInterval(callName,20);
+					}
+					else{
+						callbtn.value = "开始点名";
+						isCall = true;
+						clearInterval(timer);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="call">
+			请开始点名
+		</div>
+		<div class="divbtn">
+			<input type="button" value="开始点名" id="callbtn" />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    /*@keyframes fireGod {*/
+        /*0%{*/
+            /*background-position: 0px 0px;*/
+        /*}*/
+        /*7.14%{*/
+            /*background-position: -134px 0px;*/
+        /*}*/
+        /*14.28%{*/
+            /*background-position: -268px 0px;*/
+        /*}*/
+        /*21.42%{*/
+            /*background-position: -402px 0px;*/
+        /*}*/
+        /*28.56%{*/
+            /*background-position: -536px 0px;*/
+        /*}*/
+        /*35.7%{*/
+            /*background-position: 0px -149px;*/
+        /*}*/
+        /*42.84%{*/
+            /*background-position: -134px -149px;*/
+        /*}*/
+        /*49.98%{*/
+            /*background-position: -268px -149px;*/
+        /*}*/
+        /*57.12%{*/
+            /*background-position: -402px -149px;*/
+        /*}*/
+        /*64.26%{*/
+            /*background-position: -536px -149px;*/
+        /*}*/
+        /*71.4%{*/
+            /*background-position: 0px -298px;*/
+        /*}*/
+        /*78.54%{*/
+            /*background-position: -134px -298px;*/
+        /*}*/
+        /*85.68%{*/
+            /*background-position: -268px -298px;*/
+        /*}*/
+        /*92.82%{*/
+            /*background-position: -402px -298px;*/
+        /*}*/
+        /*100%{*/
+            /*background-position: -536px -298px;*/
+        /*}*/
+
+    /*}*/
+    .box{
+        width: 134px;
+        height: 149px;
+        box-shadow: 0 0 10px #333;
+        margin: 100px auto;
+        background-image: url("1.jpg");
+        background-position: 0px 0px;
+        animation: fireGod 1s step-end 0s infinite;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+<script src="jquery.js"></script>
+<script>
+    var num=100/14;
+    var x=0;
+    var y=0;
+    var str1="@keyframes fireGod{"
+    for(var i = 0;i < 15;i++){
+        if(i%5==0&&i!=0){
+            x=0
+            y-=149
+        }
+        str1+=(i*num)+"%{background-position:"+x+"px "+y+"px;}"
+        x-=134;
+    }
+    var str2="}"
+    var str=str1+str2;
+    $("<style>").html(str).appendTo($("head"))
+
+</script>
+</html>
